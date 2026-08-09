@@ -188,7 +188,6 @@ nav a.active {
         display: block;
     }
 }
-
 /* ========================================
    푸터
    ======================================== */
@@ -201,14 +200,12 @@ footer {
     border-top: 3px solid var(--wood);
 }
 
-/* 푸터 컨테이너 - 3열 그리드 */
 footer .container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: calc(var(--gap) * 2);
 }
 
-/* 푸터 제목 스타일 */
 footer h4 {
     font-size: 18px;
     margin-bottom: calc(var(--spacing) * 1.5);
@@ -218,7 +215,6 @@ footer h4 {
     letter-spacing: 1px;
 }
 
-/* 푸터 텍스트 & 링크 */
 footer p,
 footer a {
     font-size: 15px;
@@ -230,7 +226,6 @@ footer p {
     color: rgba(255, 255, 255, 0.85);
 }
 
-/* 푸터 링크 호버 효과 */
 footer a {
     color: var(--bg-light);
     text-decoration: none;
@@ -243,7 +238,6 @@ footer a:hover {
     transform: translateX(4px);
 }
 
-/* 강조 텍스트 */
 footer strong {
     color: white;
     display: block;
@@ -251,7 +245,6 @@ footer strong {
     font-size: 16px;
 }
 
-/* 하단 저작권 영역 */
 .footer-bottom {
     grid-column: 1 / -1;
     text-align: center;
@@ -262,6 +255,100 @@ footer strong {
     margin-top: var(--gap);
 }
 
+/* 푸터 섹션 */
+.footer-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-section h4 {
+    font-size: 18px;
+    margin-bottom: calc(var(--spacing) * 1.5);
+    color: var(--wood);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+
+/* 연락처 아이템 */
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    color: var(--wood);
+    transform: translateX(4px);
+}
+
+/* 연락처 아이콘 */
+.contact-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: var(--wood);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover .contact-icon {
+    color: white;
+    transform: scale(1.1);
+}
+
+/* 빠른 링크 */
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-links li {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+}
+
+.footer-links a::before {
+    content: "→";
+    margin-right: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+    position: absolute;
+    left: -12px;
+}
+
+.footer-links a:hover {
+    color: var(--wood);
+    padding-left: 12px;
+}
+
+.footer-links a:hover::before {
+    opacity: 1;
+}
+
 /* 모바일 반응형 */
 @media (max-width: var(--bp-mobile)) {
     footer {
@@ -269,11 +356,26 @@ footer strong {
     }
     
     footer .container {
-        gap: var(--gap);
+        grid-template-columns: 1fr;
     }
     
     footer h4 {
         font-size: 16px;
+    }
+
+    .footer-section {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: var(--spacing);
+        margin-bottom: var(--spacing);
+    }
+
+    .footer-section:last-child {
+        border-bottom: none;
+    }
+
+    .contact-icon {
+        width: 18px;
+        height: 18px;
     }
 }
 
