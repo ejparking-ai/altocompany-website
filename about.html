@@ -215,31 +215,193 @@
         </section>
     </main>
 
-    <!-- 푸터 -->
-    <footer>
-        <div class="container">
-            <div>
-                <h4>회사</h4>
-                <p><strong>알토컴퍼니 주식회사</strong></p>
-                <p>건축자재 및 건설용품 제조·판매</p>
-            </div>
-            <div>
-                <h4>연락처</h4>
-                <p>📞 전화: (임시 번호)</p>
-                <p>📧 이메일: (임시 이메일)</p>
-                <p>📍 주소: (임시 주소)</p>
-            </div>
-            <div>
-                <h4>빠른 링크</h4>
-                <a href="products.html">제품 소개</a><br>
-                <a href="about.html">회사소개</a><br>
-                <a href="downloads.html">자료실</a><br>
-                <a href="contact.html">문의</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 알토컴퍼니. All rights reserved.</p>
-        </div>
-    </footer>
-</body>
-</html>
+   /* ========================================
+   푸터
+   ======================================== */
+
+footer {
+    background-color: var(--primary);
+    color: white;
+    padding: calc(var(--spacing) * 5) var(--spacing);
+    margin-top: calc(var(--spacing) * 4);
+    border-top: 3px solid var(--wood);
+}
+
+footer .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: calc(var(--gap) * 2);
+}
+
+footer h4 {
+    font-size: 18px;
+    margin-bottom: calc(var(--spacing) * 1.5);
+    color: var(--wood);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+footer p,
+footer a {
+    font-size: 15px;
+    margin-bottom: 12px;
+    line-height: 1.8;
+}
+
+footer p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+footer a {
+    color: var(--bg-light);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+footer a:hover {
+    color: var(--wood);
+    transform: translateX(4px);
+}
+
+footer strong {
+    color: white;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.footer-bottom {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding-top: calc(var(--spacing) * 2);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: var(--gap);
+}
+
+/* 푸터 섹션 */
+.footer-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-section h4 {
+    font-size: 18px;
+    margin-bottom: calc(var(--spacing) * 1.5);
+    color: var(--wood);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+
+/* 연락처 아이템 */
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    color: var(--wood);
+    transform: translateX(4px);
+}
+
+/* 연락처 아이콘 */
+.contact-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: var(--wood);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover .contact-icon {
+    color: white;
+    transform: scale(1.1);
+}
+
+/* 빠른 링크 */
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-links li {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+}
+
+.footer-links a::before {
+    content: "→";
+    margin-right: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+    position: absolute;
+    left: -12px;
+}
+
+.footer-links a:hover {
+    color: var(--wood);
+    padding-left: 12px;
+}
+
+.footer-links a:hover::before {
+    opacity: 1;
+}
+
+/* 모바일 반응형 */
+@media (max-width: var(--bp-mobile)) {
+    footer {
+        padding: calc(var(--spacing) * 3) var(--spacing);
+    }
+    
+    footer .container {
+        grid-template-columns: 1fr;
+    }
+    
+    footer h4 {
+        font-size: 16px;
+    }
+
+    .footer-section {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: var(--spacing);
+        margin-bottom: var(--spacing);
+    }
+
+    .footer-section:last-child {
+        border-bottom: none;
+    }
+
+    .contact-icon {
+        width: 18px;
+        height: 18px;
+    }
+}
