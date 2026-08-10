@@ -470,7 +470,40 @@ strong {
     background-color: var(--primary);
     color: white;
 }
+/* 히어로 버튼 그룹 */
+.hero-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top: calc(var(--spacing) * 3);
+}
 
+.hero-buttons .btn {
+    padding: 16px 32px;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+.hero-buttons .btn-primary:hover,
+.hero-buttons .btn-secondary:hover,
+.hero-buttons .btn-outline:hover {
+    transform: translateY(-3px);
+}
+
+@media (max-width: var(--bp-mobile)) {
+    .hero-buttons {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: calc(var(--spacing) * 2);
+    }
+
+    .hero-buttons .btn {
+        padding: 14px 24px;
+        font-size: 15px;
+    }
+}
 /* ========================================
    히어로 섹션
    ======================================== */
